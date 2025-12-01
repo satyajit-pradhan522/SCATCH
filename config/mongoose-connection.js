@@ -1,12 +1,16 @@
 const mongoose = require("mongoose");
+const config = require("config");
+const debug = require("debug")("development:mongoose");
+
+const mongoURI = config.get("MONGO_URI");
 
 mongoose
-  .connect("mongodb://localhost:27017/scatch")
+  .connect(mongoURI + "/scatch")
   .then(() => {
-    console.log("Connected to MongoDB");
+    debug("Connected to MongoDB");
   })
   .catch((err) => {
-    console.error("Error connecting to MongoDB", err);
+    debug("Error connecting to MongoDB", err);
   });
 
 module.exports = mongoose.connection;
