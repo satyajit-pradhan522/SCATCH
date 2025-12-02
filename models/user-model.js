@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema({
   email: String,
   cart: { type: Array, default: [] },
   orders: { type: Array, default: [] },
-  isAdmin: Boolean,
   contact: Number,
   picture: String,
 });
